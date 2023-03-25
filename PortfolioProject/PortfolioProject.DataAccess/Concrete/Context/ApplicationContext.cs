@@ -13,7 +13,7 @@ namespace PortfolioProject.DataAccess.Concrete.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.;database=PortfolioProjectDB;integrated security=true");
+            optionsBuilder.UseSqlServer("server=.;database=PortfolioProjectDB;integrated security=true; Trusted_Connection=True; trustServerCertificate=true");
         }
 
         public DbSet<About> Abouts { get; set; }
