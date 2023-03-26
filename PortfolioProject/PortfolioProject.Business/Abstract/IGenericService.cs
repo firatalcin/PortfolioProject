@@ -2,9 +2,9 @@
 {
     public interface IGenericService<T> where T : class
     {
-        void Add();
-        void Delete();
-        void Update();
+        void Add(T t);
+        void Delete(T t);
+        void Update(T t);
         List<T> GetAll();
         T GetByID(int id);
     }
