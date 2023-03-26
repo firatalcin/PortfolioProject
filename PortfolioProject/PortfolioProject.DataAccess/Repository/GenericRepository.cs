@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace PortfolioProject.DataAccess.Repository
 {
-    internal class GenericRepository<T> : IGenericDal<T> where T : class
+    public class GenericRepository<T> : IGenericDal<T> where T : class
     {
         public void Add(T t)
         {
