@@ -23,4 +23,9 @@
     <ProjectReference Include="..\PortfolioProject.DataAccess\PortfolioProject.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Concrete\" />
+    <Folder Include="ValidationRules\" />
+  </ItemGroup>
+
 </Project>
