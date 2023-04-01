@@ -1,4 +1,5 @@
 ﻿using PortfolioProject.Business.Abstract;
+using PortfolioProject.DataAccess.Abstract;
 using PortfolioProject.Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,31 +9,38 @@ using System.Threading.Tasks;
 
 namespace PortfolioProject.Business.Concrete
 {
-    public class ContactManager : IContactService
+    public class ContactManager : IGenericService<Contact>
     {
+        IContactDal _contactDal;
+
+        public ContactManager(IContactDal contactDal)
+        {
+            _contactDal = contactDal;
+        }
+
         public void Add(Contact t)
         {
-            throw new NotImplementedException();
+            _contactDal.Add(t);
         }
 
         public void Delete(Contact t)
         {
-            throw new NotImplementedException();
+            _contactDal.Delete(t);
         }
 
         public List<Contact> GetAll()
         {
-            throw new NotImplementedException();
+            return _contactDal.GetAll();
         }
 
         public Contact GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _contactDal.Get(x => x.ID == id);
         }
 
         public void Update(Contact t)
         {
-            throw new NotImplementedException();
+            _contactDal.Update(t);
         }
     }
 
