@@ -15,13 +15,13 @@ namespace PortfolioProject.UI.ViewComponents.Contact
             return View();
         }
 
-        [HttpPost]
-        public IViewComponentResult Invoke(Message message)
-        {
-            message.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            message.Status = true;
-            messageManager.Add(message); 
-            return View();
-        }
+        //[HttpPost]
+        //public IViewComponentResult Invoke(Message message)
+        //{
+        //    message.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+        //    message.Status = true;
+        //    messageManager.Add(message); 
+        //    return View();
+        //}
     }
 }
