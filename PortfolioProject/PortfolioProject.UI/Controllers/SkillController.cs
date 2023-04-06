@@ -33,5 +33,19 @@ namespace PortfolioProject.UI.Controllers
             skillManager.Delete(entity);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public IActionResult EditSkill(int id)
+        {
+            var entity = skillManager.GetByID(id);
+            return View(entity);
+        }
+
+        [HttpPost]
+        public IActionResult EditSkill(Skill skill)
+        {
+            skillManager.Update(skill);
+            return RedirectToAction("Index");
+        }
     }
 }
