@@ -26,5 +26,12 @@ namespace PortfolioProject.UI.Controllers
             skillManager.Add(skill);
             return RedirectToAction("Index");
         }
+
+        public IActionResult DeleteSkill(int id) 
+        {
+            var entity = skillManager.GetByID(id);
+            skillManager.Delete(entity);
+            return RedirectToAction("Index");
+        }
     }
 }
