@@ -28,5 +28,14 @@ namespace PortfolioProject.UI.Controllers
         {
             return PartialView();
         }
+
+        public PartialViewResult NavigationPartial()
+        {
+            return PartialView();
+        }
+        public PartialViewResult NewSidebar()
+        {
+            return PartialView();
+        }
     }
 }
