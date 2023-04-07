@@ -45,5 +45,12 @@ namespace PortfolioProject.UI.Controllers
 
 
         }
+
+        public IActionResult DeletePortfolio(int id)
+        {
+            var entity = portfolioManager.GetByID(id);
+            portfolioManager.Delete(entity);
+            return RedirectToAction("Index");
+        }
     }
 }
