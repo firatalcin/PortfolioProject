@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation.Results;
+using Microsoft.AspNetCore.Mvc;
 using PortfolioProject.Business.Concrete;
+using PortfolioProject.Business.ValidationRules;
 using PortfolioProject.DataAccess.Concrete.EntityFramework;
 using PortfolioProject.Entity.Concrete;
 
@@ -24,8 +26,24 @@ namespace PortfolioProject.UI.Controllers
         [HttpPost]
         public IActionResult AddPortfolio(Portfolio portfolio)
         {
-            portfolioManager.Add(portfolio);
-            return RedirectToAction("Index");
+            PortfolioValidator validations= new PortfolioValidator();
+            ValidationResult results = validations.Validate(portfolio);
+            if (results.IsValid)
+            {
+                portfolioManager.Add(portfolio);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+
+            return View();
+
+
         }
     }
 }
