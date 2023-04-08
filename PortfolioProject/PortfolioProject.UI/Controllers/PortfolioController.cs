@@ -46,6 +46,33 @@ namespace PortfolioProject.UI.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult EditPortfolio(int id)
+        {
+            var entity = portfolioManager.GetByID(id);
+            return View(entity);
+        }
+
+        [HttpPost]
+        public IActionResult EditPortfolio(Portfolio portfolio)
+        {
+            PortfolioValidator validations = new PortfolioValidator();
+            ValidationResult result= validations.Validate(portfolio);
+            if (result.IsValid)
+            {
+                portfolioManager.Update(portfolio);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
+        }
+
         public IActionResult DeletePortfolio(int id)
         {
             var entity = portfolioManager.GetByID(id);
