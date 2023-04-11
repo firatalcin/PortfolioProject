@@ -17,5 +17,6 @@ namespace PortfolioProject.Entity.Concrete
         public string Password { get; set; }
         public string ImageURL { get; set; }
         public bool Status { get; set; }
+        public List<UserMessage> UserMessages { get; set; }
     }
 }
