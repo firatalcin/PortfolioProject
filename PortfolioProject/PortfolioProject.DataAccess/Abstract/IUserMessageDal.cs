@@ -9,5 +9,6 @@ namespace PortfolioProject.DataAccess.Abstract
 {
     public interface IUserMessageDal : IGenericDal<UserMessage>
     {
+        public List<UserMessage> GetUserMessagesWithUser();
     }
 }

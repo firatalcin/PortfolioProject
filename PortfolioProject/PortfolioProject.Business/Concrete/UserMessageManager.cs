@@ -33,6 +33,11 @@ namespace PortfolioProject.Business.Concrete
             throw new NotImplementedException();
         }
 
+        public List<UserMessage> GetUserMessageWithUserService()
+        {
+            return _userMessageDal.GetUserMessagesWithUser();
+        }
+
         public void Update(UserMessage t)
         {
             throw new NotImplementedException();
