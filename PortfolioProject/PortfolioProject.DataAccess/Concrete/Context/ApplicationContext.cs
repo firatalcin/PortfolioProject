@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PortfolioProject.Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace PortfolioProject.DataAccess.Concrete.Context
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
