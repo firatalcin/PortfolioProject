@@ -10,7 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace PortfolioProject.DataAccess.Concrete.Context
 {
-    public class ApplicationContext : IdentityDbContext
+    public class ApplicationContext : IdentityDbContext<WriterUser,WriterRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
