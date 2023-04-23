@@ -1,7 +1,14 @@
+using PortfolioProject.DataAccess.Concrete.Context;
+using PortfolioProject.Entity.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ApplicationContext>();
+builder.Services.AddIdentity<WriterUser, WriterRole>().AddEntityFrameworkStores<ApplicationContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 
 var app = builder.Build();
 
