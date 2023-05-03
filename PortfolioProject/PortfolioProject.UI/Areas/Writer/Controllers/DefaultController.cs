@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PortfolioProject.Business.Concrete;
 using PortfolioProject.DataAccess.Concrete.EntityFramework;
+using PortfolioProject.Entity.Concrete;
 
 namespace PortfolioProject.UI.Areas.Writer.Controllers
 {
@@ -15,6 +16,13 @@ namespace PortfolioProject.UI.Areas.Writer.Controllers
         {
             var values = announcementManager.GetAll();
             return View(values);
+        }
+
+        [HttpGet]
+        public IActionResult AnnouncementDetails(int id)
+        {
+            Announcement announcement = announcementManager.GetByID(id);
+            return View(announcement);
         }
     }
 }
